@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="mn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Төрсөн өдрийн мэнд — Энх Учрал</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#ffb86b; --muted:#98a0b3;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial; margin:0; background:linear-gradient(180deg,#071027 0%, #081427 60%); color:#e6eef8; -webkit-font-smoothing:antialiased;}
+    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px}
+    .card{width:100%;max-width:920px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:18px;padding:28px;box-shadow:0 10px 30px rgba(2,6,23,0.6);display:grid;grid-template-columns:1fr 360px;gap:20px}
+    .hero{padding:18px}
+    h1{font-size:34px;margin:0 0 6px 0;line-height:1.05}
+    .sub{color:var(--muted);margin-bottom:14px}
+    .message{background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,184,107,0.03));padding:16px;border-radius:12px;margin-bottom:16px}
+    .message p{margin:0;font-size:16px}
+    .actions{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{background:var(--accent);border:none;padding:10px 14px;border-radius:10px;font-weight:700;color:#0b1220;cursor:pointer}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent)}
+    .aside{padding:18px;border-left:1px dashed rgba(255,255,255,0.03)}
+    .avatar{height:120px;width:120px;border-radius:14px;background:linear-gradient(135deg,#ffd7b3,#ffb86b);display:flex;align-items:center;justify-content:center;font-weight:900;color:#1a1a1a;font-size:28px;margin-bottom:12px}
+    .small{font-size:13px;color:var(--muted)}
+    .gift-list{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+    .gift{background:rgba(255,255,255,0.02);padding:10px;border-radius:10px}
+    .footer{margin-top:18px;color:var(--muted);font-size:13px}
+    /* confetti */
+    .confetti{position:absolute;inset:0;pointer-events:none}
+    .confetti i{position:absolute;display:block;width:10px;height:16px;opacity:0;transform-origin:center;animation:fall 2400ms linear infinite}
+    @keyframes fall{0%{transform:translateY(-10vh) rotate(0) scale(1);opacity:1}100%{transform:translateY(115vh) rotate(720deg) scale(.9);opacity:0}}
+    @media (max-width:880px){.card{grid-template-columns:1fr;}.aside{border-left:none;border-top:1px dashed rgba(255,255,255,0.03);}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="hero">
+        <h1>Төрсөн өдрийн мэнд, Энх Учрал! 🎂</h1>
+        <div class="sub">Маргааш — тусгай өдөр. Чамайг түүнийг баярлуулах сайхан вэб хуудас бэлдлээ.</div>
+
+        <div class="message" id="messageBox">
+          <p>Энх Учрал минь, чамтай хамт өнгөрүүлсэн жилүүд нь миний амьдралын хамгийн үнэт дурсамж. Бидні
+йн инээд, уйлалт, давшгүй дэмжлэг — бүгд миний зүрхэнд гүн шингэсэн. Маргаашийн энэ өдөр чамд аз жаргал, амар амгалан, шинэ эхлэл авчирна гэж итгэж байна. Би чамд үргэлж хажууд байх болно — өнгөрсөн бүх сайхан дурсамжаа үргэлжлүүлж, ирээдүйд илүү ихийг бүтээцгээе. Төрсөн өдрийн мэнд, миний хайртай хүн. ❤️</p>
+        </div>
+
+        <div class="actions">
+          <button class="btn" id="copyBtn">Мэндчилгээг хуулах</button>
+          <button class="btn ghost" id="whatsappBtn">WhatsApp-ээр илгээх</button>
+          <button class="btn ghost" id="editBtn">Хэрэв өөрчлөх</button>
+        </div>
+
+        <div class="footer">Зөвшөөрвөл энэ үгийг мессеж, картад хуулж аваад өөрийн болгоорой.</div>
+      </div>
+
+      <div class="aside">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="avatar">ЭУ</div>
+          <div>
+            <div style="font-weight:700">Энх Учрал</div>
+            <div class="small">Төрсөн өдөр: <strong>Маргааш</strong></div>
+          </div>
+        </div>
+
+        <div class="gift-list">
+          <div class="gift"><strong>Бэлгийн санаа:</strong> Хосын өдрийн зураг авалт эсвэл гар урлалын бэлэг.</div>
+          <div class="gift"><strong>Хосын үйл ажиллагаа:</strong> Ресторан, богино амралт эсвэл гэртээ романтик кино үдэшлэг.</div>
+          <div class="gift"><strong>Энгийн боловч сэтгэлээс:</strong> Чиний гараар бичсэн захидал.</div>
+        </div>
+
+        <div style="margin-top:14px" class="small">Тэмдэглэл: Та "Хэрэв өөрчлөх" дээр дарж мэндчилгээг засварлаад дахин хуулж болно.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="confetti" id="confetti"></div>
+
+  <script>
+    // confetti generator
+    (function(){
+      const confetti = document.getElementById('confetti');
+      const colors=['#FF6B6B','#FFD93D','#6BCB77','#4D96FF','#A66BFF'];
+      for(let i=0;i<40;i++){const el=document.createElement('i'); el.style.left=(Math.random()*100)+'%'; el.style.background=colors[i%colors.length]; el.style.animationDelay=(Math.random()*1500)+'ms'; el.style.transform='rotate('+ (Math.random()*360)+'deg)'; el.style.width=(6+Math.random()*10)+'px'; el.style.height=(8+Math.random()*12)+'px'; confetti.appendChild(el);}  
+    })();
+
+    const copyBtn=document.getElementById('copyBtn');
+    const whatsappBtn=document.getElementById('whatsappBtn');
+    const editBtn=document.getElementById('editBtn');
+    const messageBox=document.getElementById('messageBox');
+
+    copyBtn.addEventListener('click', async ()=>{
+      const text = messageBox.innerText.trim();
+      try{await navigator.clipboard.writeText(text); copyBtn.innerText='Хуудасанд хуулсан!'; setTimeout(()=>copyBtn.innerText='Мэндчилгээг хуулах',2000);}catch(e){alert('Хуулахад алдаа гарлаа. Та гараар сонгон хуулна уу.');}
+    });
+
+    whatsappBtn.addEventListener('click', ()=>{
+      const text = encodeURIComponent(messageBox.innerText.trim());
+      // open WhatsApp web with phone left blank for user to choose recipient
+      const url = 'https://wa.me/?text='+text;
+      window.open(url,'_blank');
+    });
+
+    editBtn.addEventListener('click', ()=>{
+      const current = messageBox.innerText.trim();
+      const newText = prompt('Мэндчилгээг засварлана уу:', current);
+      if(newText!==null){messageBox.innerHTML='<p>'+escapeHtml(newText).replace(/\n/g,'<br>')+'</p>'}
+    });
+
+    function escapeHtml(unsafe){return unsafe.replace(/[&<"'`=\/]/g,function(s){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;',"/":'&#x2F;','`':'&#96;','=':'&#61;'}[s]});}
+  </script>
+</body>
+</html>
